@@ -57,13 +57,13 @@
 
 </head>
 
-<body style="opacity:0.9;background-image:url('<?= base_url('assets/Admin/')?>img/login.jpg'); background-size: cover;background-repeat: no-repeat;background-position: inherit;">
+<body>
 <div class="ch-container">
     <div class="row">
         
     <div class="row">
         <div class="col-md-12 center login-header">
-            <h2>Welcome to Laboraturium Nutrisi UGM</h2>
+            <h2>Admin Koperasi Setara</h2>
         </div>
         <!--/span-->
     </div><!--/row-->

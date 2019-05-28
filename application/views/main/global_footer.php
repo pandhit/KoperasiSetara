@@ -1,4 +1,4 @@
-<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45"style="display:flex-x">
 		<div  class="flex-w p-b-90" style="padding-left:15%">
 			
 			<div class="col-lg-4  col-sm-6">

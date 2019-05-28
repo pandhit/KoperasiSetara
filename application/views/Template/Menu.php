@@ -16,8 +16,8 @@
                             <div class="collapse in" id="FormMaster">
                                 <ul class="nav">
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>ControllerAlat/Controller_alat/getDataAlat">
-                                        <span> Alat </span>
+                                        <a class="nav-link" href="<?= base_url()?>Admin/ControllerBerita/Controller_berita/getDataBerita">
+                                        <span> Berita </span>
                                         </a>
                                     </li>
                                     <li class="nav-item ">
