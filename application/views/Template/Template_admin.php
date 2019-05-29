@@ -1,20 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--
-        ===
-        This comment should NOT be removed.
-
-        Charisma v2.0.0
-
-        Copyright 2012-2014 Muhammad Usman
-        Licensed under the Apache License v2.0
-        http://www.apache.org/licenses/LICENSE-2.0
-
-        http://usman.it
-        http://twitter.com/halalit_usman
-        ===
-    -->
     <meta charset="utf-8">
     <title>Laboraturium Nutrisi UGM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,14 +30,6 @@
 
     <!-- jQuery -->
     <script src="<?= base_url('assets/Admin/')?>bower_components/jquery/jquery.min.js"></script>
-
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- external javascript -->
-
 
     <script src="<?= base_url('assets/Admin/')?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -90,7 +68,7 @@
 
 
     <!-- The fav icon -->
-    <link rel="shortcut icon" href="<?= base_url('assets/Admin/')?>img/logo20.png">
+<link rel="shortcut icon" href="<?= base_url('assets/Admin/')?>img/logotop.png">
 
 </head>
 
@@ -105,12 +83,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="<?= base_url('assets/Admin/')?>img/logo20.png" class="hidden-xs"/>
-                <span>LAB-NUTRISI</span></a>
+            <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="<?= base_url('assets/Admin/')?>img/logo.gif" width="300px" class="hidden-xs"/>
+              </a>
 
             <!-- user dropdown starts -->
             <div class="btn-group pull-right" style="transform: translateX(-15%);">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="margin-top: 9px;">
                     <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">   <?= $_SESSION['Admin']->username?></span>
                     <span class="caret"></span>
                 </button>
@@ -120,30 +98,6 @@
                     <li><a href="<?= base_url('Admin/ControllerAdmin/Login/logout')?>">Logout</a></li>
                 </ul>
             </div>
-
-            <ul class="collapse navbar-collapse nav navbar-nav top-menu">
-                <li><a href="#"><i class="glyphicon glyphicon-globe"></i> Visit Site</a></li>
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i> Dropdown <span
-                            class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <form class="navbar-search pull-left">
-                        <input placeholder="Search" class="search-query form-control col-md-10" name="query"
-                               type="text">
-                    </form>
-                </li>
-            </ul>
-
         </div>
     </div>
     <!-- topbar ends -->
@@ -172,7 +126,7 @@
 
 
     <footer align="center" class="row" style="padding-top:20px;" >
-        <p class="col-md-12 col-sm-12 col-xs-12 copyright">&copy; <a href="http://usman.it" target="_blank">Lab-Nutrisi-Fakultas-Peternakan-UGM</a> 2018 - 2019</p>
+        <p class="col-md-12 col-sm-12 col-xs-12 copyright">&copy; <a href="http://usman.it" target="_blank">Koperasi Setara</a>   2019</p>
     </footer>
 
 </div><!--/.fluid-container-->

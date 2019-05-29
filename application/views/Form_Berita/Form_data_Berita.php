@@ -1,7 +1,7 @@
 <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <a href="#">Beranda</a>
             </li>
             <li>
                 <a href="#">Data Berita</a>

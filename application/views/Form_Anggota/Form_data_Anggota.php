@@ -1,10 +1,10 @@
 <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Home</a>
+                <a href="#">Beranda</a>
             </li>
             <li>
-                <a href="#">Data Berita</a>
+                <a href="#">Data Anggota</a>
             </li>
         </ul>
     </div>
@@ -13,7 +13,7 @@
     <div class="box col-md-12">
     <div class="box-inner">
     <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i> Data Berita</h2>
+        <h2><i class="glyphicon glyphicon-user"></i> Data Anggota</h2>
 
         <div class="box-icon">
             <a href="#" class="btn addberita btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
@@ -29,20 +29,18 @@
                 <tr>
                     <th>Nama</th>
                     <th>KTA</th>
-                    <th>Tanggal</th>
-                    <th>Penulis</th>
-                    <th>Gambar</th>
+                    <th>Alamat</th>
                     <th>Action</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($Berita as $k) { ?>
+                <?php foreach($anggota as $k) { ?>
                     <tr>
-                        <td><?= $k->judul?></td>
-                        <td><?= $k->isi?></td>
-                        <td><?= $k->tanggal?></td>
-                        <td><?= $k->penulis?></td>
-                        <td><?= $k->gambar?></td>
+                        <td><?= $k->nama?></td>
+                        <td><?= $k->kta?></td>
+                        <td><?= $k->alamat?></td>
+                        
                         <td class="center">
                             <a class="btn btn-info" href="<?= base_url('Admin/ControllerBerita/Controller_berita/viewFormEditBerita?id_berita='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
@@ -64,7 +62,7 @@
         </div><!--/row-->
     </div><!--/span-->
 
-    <?php include "Form_add_Berita.php";?>
+    <?php include "Form_add_Anggota.php";?>
 
 <script>
     $('.addberita').click(function (e) {
