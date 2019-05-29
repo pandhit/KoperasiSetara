@@ -36,6 +36,5 @@
             </div>
         </div>
     </div>
-    <!--/span-->
 
 </div><!--/row-->

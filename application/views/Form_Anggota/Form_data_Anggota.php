@@ -4,7 +4,7 @@
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#">Data Alat</a>
+                <a href="#">Data Berita</a>
             </li>
         </ul>
     </div>
@@ -13,10 +13,10 @@
     <div class="box col-md-12">
     <div class="box-inner">
     <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i> Data Alat</h2>
+        <h2><i class="glyphicon glyphicon-user"></i> Data Berita</h2>
 
         <div class="box-icon">
-            <a href="#" class="btn addCategory btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
+            <a href="#" class="btn addberita btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
             <a href="#" class="btn btn-minimize btn-round btn-default"><i
                     class="glyphicon glyphicon-chevron-up"></i></a>
             <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
@@ -27,21 +27,28 @@
         <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
             <thead>
                 <tr>
-                    <th>Nama Category</th>
+                    <th>Nama</th>
+                    <th>KTA</th>
+                    <th>Tanggal</th>
+                    <th>Penulis</th>
+                    <th>Gambar</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($Category as $k) { ?>
+                <?php foreach($Berita as $k) { ?>
                     <tr>
-                      
-                        <td><?= $k->Name_Category?></td>
+                        <td><?= $k->judul?></td>
+                        <td><?= $k->isi?></td>
+                        <td><?= $k->tanggal?></td>
+                        <td><?= $k->penulis?></td>
+                        <td><?= $k->gambar?></td>
                         <td class="center">
-                            <a class="btn btn-info" href="<?= base_url('ControllerCategory/Controller_category/viewFormEditCategory?Category_id='.$k->Category_id.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('Admin/ControllerBerita/Controller_berita/viewFormEditBerita?id_berita='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('ControllerCategory/Controller_category/deleteCategory?Category_id='.$k->Category_id.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('Admin/ControllerBerita/Controller_berita/deleteBerita?id_berita='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>
@@ -57,12 +64,12 @@
         </div><!--/row-->
     </div><!--/span-->
 
-    <?php include "Form_add_category.php";?>
+    <?php include "Form_add_Berita.php";?>
 
 <script>
-    $('.addCategory').click(function (e) {
+    $('.addberita').click(function (e) {
         e.preventDefault();
-        $('#addCategory').modal('show');
+        $('#addberita').modal('show');
     });
 
 <?php if (!empty($this->session->flashdata('Status'))){?>
