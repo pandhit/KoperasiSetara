@@ -6,7 +6,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct() {
             parent::__construct();
             $this->load->model('Model_anggota');
-            
+            $this->load->model('Model_kelompok');
+        }
+        function getDataKelompok()
+        {
+            $nama = $_POST["nama"];
+            $data = $this->Model_kelompok->get_kelompok($nama);
+            echo json_encode($data);
+        }
+        
+        function getDataById()
+        {
+            $id = $_GET["id"];
+            $data['datadetail'] = $this->Model_anggota->get_anggota_by_id($id);
+            $this->template->load('Template/Template_admin','Form_anggota/Form_detail_anggota',$data);
+
         }
 
         function getDataanggota()
@@ -18,12 +32,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function addanggota()
         {
                 $anggota = array (
-                    'judul'=>$this->input->post('judulanggota'),                                    
-                    'isi'=>$this->input->post('isianggota'),
-                    'gambar'=>$_FILES['gambar']['name']
+                    'kelompok'=>$this->input->post('Kelompok'),                                    
+                    'nama'=>$this->input->post('Nama'),
+                    'kta'=>$this->input->post('Kta'),
+                    'alamat'=>$this->input->post('Alamat'),
+                    'tempat_lahir'=>$this->input->post('Tempat_lahir') ,
+                    'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),     
+                    'agama'=>$this->input->post('Agama'),
+                    'status_kawin'=>$this->input->post('Status')      
                 );  
-            $addanggota= $this->Model_anggota->add_anggota($anggota);
-            $this->upload_gambar();
+            $addanggota= $this->Model_anggota->add_anggota($anggota);         
             if($addanggota)
             {
                 $this->session->set_flashdata('Status','Input Succes');

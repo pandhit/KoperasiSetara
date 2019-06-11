@@ -30,8 +30,7 @@
                     <th>Nama</th>
                     <th>KTA</th>
                     <th>Alamat</th>
-                    <th>Action</th>
-                    
+                    <th>Action</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +41,10 @@
                         <td><?= $k->alamat?></td>
                         
                         <td class="center">
+                        <a class="btn btn-primary" href="<?= base_url('Admin/ControllerAnggota/Controller_anggota/getDataById?id='.$k->id.'')?>">
+                                <i class="glyphicon glyphicon-search icon-white"></i>
+                                Detail
+                            </a>
                             <a class="btn btn-info" href="<?= base_url('Admin/ControllerBerita/Controller_berita/viewFormEditBerita?id_berita='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
@@ -49,7 +52,7 @@
                             <a class="btn btn-danger" href="<?= base_url('Admin/ControllerBerita/Controller_berita/deleteBerita?id_berita='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
-                            </a>
+                            </a>                          
                         </td>
                     </tr>
                 <?php } ?>
@@ -67,7 +70,17 @@
 <script>
     $('.addberita').click(function (e) {
         e.preventDefault();
+        
         $('#addberita').modal('show');
+        $('#search-box').val('');
+        $('#input1').val('');
+        $('#input2').val('');
+        $('#input3').val('');
+        $('#input4').val('');
+        $('#input5').val('');
+        document.getElementById("agama").selectedIndex = "0";
+        document.getElementById("status").selectedIndex = "0";
+
     });
 
 <?php if (!empty($this->session->flashdata('Status'))){?>

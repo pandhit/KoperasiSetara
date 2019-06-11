@@ -6,6 +6,12 @@ class Model_anggota extends CI_Model {
         $getanggota = $this ->db->get('tb_anggota')->result();
         return $getanggota;
     }
+    function get_anggota_by_id($id)
+    {
+        $this->db->where('id',$id);
+        $getanggota = $this ->db->get('tb_anggota')->row();
+        return $getanggota;
+    }
     function add_anggota($dataanggota)
     {
         $addanggota=$this->db->insert("tb_anggota",$dataanggota);

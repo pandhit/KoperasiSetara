@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Laboraturium Nutrisi UGM</title>
+    <title>Admin Koperasi Setara</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The styles -->
     <!-- <link href="<?= base_url('assets/Admin/Admin')?>css/bootstrap-darkly.min.css" rel="stylesheet"> -->
@@ -64,7 +64,7 @@
     <!-- application script for Charisma demo -->
     <script src="<?= base_url('assets/Admin/')?>js/charisma.js"></script>
     <script src="<?php echo base_url('assets/Admin/')?>js/bootstrap-notify.js"></script>
-
+    <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/custom.css"> 
 
 
     <!-- The fav icon -->
@@ -89,7 +89,7 @@
             <!-- user dropdown starts -->
             <div class="btn-group pull-right" style="transform: translateX(-15%);">
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="margin-top: 9px;">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">   <?= $_SESSION['Admin']->username?></span>
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs">  <?= $_SESSION['Admin']->username?></span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">

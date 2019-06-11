@@ -1,14 +1,13 @@
-
 <div>
         <ul class="breadcrumb">
             <li>
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#">Edit Category</a>
+                <a href="#">Edit Berita</a>
             </li>
         </ul>
-    </div>
+ </div>
     
 <div class="row">
     <div class="box col-md-12">
@@ -36,5 +35,4 @@
             </div>
         </div>
     </div>
-
-</div><!--/row-->
+</div>

@@ -7,12 +7,10 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked main-menu">
                         <li class="nav-header">Main</li>
-                        <li><a class="nav-link" href="<?= base_url('ControllerAdmin/Dashboard')?>"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
+                        <li><a class="nav-link" href="<?= base_url('Admin/ControllerAdmin/Dashboard')?>"><i class="glyphicon glyphicon-home"></i><span> Dashboard</span></a>
                         
                         <li class="nav-item ">
-                                <a class="nav-link collapsed" data-toggle="collapse" data-target="#" href="#FormMaster">
-                                    <i class="glyphicon glyphicon-hdd"></i><span> Forms Input Master</span>
-                                </a>
+                                
                             <div class="collapse in" id="FormMaster">
                                 <ul class="nav">
                                     <li class="nav-item ">
