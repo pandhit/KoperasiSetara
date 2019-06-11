@@ -43,20 +43,20 @@
                                     <span class="notranslate"><?= $datadetail->tanggal_lahir?></span>  
                                 </li>
                                 <li>  
-                                    <strong> Badan Hukum </strong>  
-                                    <span class="notranslate">72/BH/MENEG.I/XII/2000 XXXXXXX</span>  
+                                    <strong> Alamat </strong>  
+                                    <span class="notranslate"><?= $datadetail->alamat?></span>  
                                 </li>                                                     
                             </ul>                                        
                         </div>     
                         <div class="col-md-5">
                         <ul class="keyvalue">
                                 <li>  
-                                    <strong> Nama Koperasi </strong>  
-                                    <span class="notranslate"> Koperasi Setara Klaten </span>  
+                                    <strong> Wilayah </strong>  
+                                    <span class="notranslate"> <?= $datadetail->wilayah?></span>  
                                 </li>
                                 <li>  
-                                    <strong> Nama Singkat </strong>  
-                                    <span class="notranslate">Koperasi Setara </span>  
+                                    <strong>Agama </strong>  
+                                    <span class="notranslate"> <?= $datadetail->agama?> </span>  
                                 </li>
                                 <li>  
                                     <strong> Badan Usaha </strong>  
