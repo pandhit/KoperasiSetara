@@ -27,8 +27,8 @@
                     </div>
                     <div class="form-group">
                         <label>Gambar</label>
-                        <input required type="Text" name="img" class="form-control" value="<?php echo $editBerita->gambar?>">
-                    </div>
+                        <input required type="file" name='foto' accept="image/x-png,image/gif,image/jpeg" class="form-control">
+                    </div>                     
                     <button type="submit" name="submitid" value=<?= $editBerita->id?> class="btn btn-default">Update</button>
                 </form>
 

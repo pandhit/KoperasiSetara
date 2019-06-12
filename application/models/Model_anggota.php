@@ -8,8 +8,11 @@ class Model_anggota extends CI_Model {
     }
     function get_anggota_by_id($id)
     {
+        $this->db->select('a.*,b.nama_usaha');
+        $this->db->from('tb_anggota as a');
+        $this->db->Join('tb_usaha as b','b.nomor=a.usaha');
         $this->db->where('id',$id);
-        $getanggota = $this ->db->get('tb_anggota')->row();
+        $getanggota = $this ->db->get()->row();
         return $getanggota;
     }
     function add_anggota($dataanggota)

@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('Model_kelompok');
         }
         function getDataKelompok()
-        {
+        {  
             $nama = $_POST["nama"];
             $data = $this->Model_kelompok->get_kelompok($nama);
             echo json_encode($data);
@@ -31,28 +31,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function addanggota()
         {
-                $anggota = array (
-                    'kelompok'=>$this->input->post('Kelompok'),                                    
-                    'nama'=>$this->input->post('Nama'),
-                    'kta'=>$this->input->post('Kta'),
-                    'alamat'=>$this->input->post('Alamat'),
-                    'tempat_lahir'=>$this->input->post('Tempat_lahir') ,
-                    'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),     
-                    'agama'=>$this->input->post('Agama'),
-                    'status_kawin'=>$this->input->post('Status')      
-                );  
-            $addanggota= $this->Model_anggota->add_anggota($anggota);         
-            if($addanggota)
-            {
-                $this->session->set_flashdata('Status','Input Succes');
-                redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
-            }
+                $foto = get_current_date_img().'_'.str_replace(' ','_',$_FILES['foto']['name']);
+                if($this->upload_gambar($foto)){
+                        $anggota = array (
+                            'kelompok'=>$this->input->post('Kelompok'),                                    
+                            'nama'=>$this->input->post('Nama'),
+                            'kta'=>$this->input->post('Kta'),
+                            'alamat'=>$this->input->post('Alamat'),
+                            'tempat_lahir'=>$this->input->post('Tempat_lahir') ,
+                            'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),     
+                            'agama'=>$this->input->post('Agama'),
+                            'status_kawin'=>$this->input->post('Status'),
+                            'usaha'=>$this->input->post('usaha'),
+                            'anggota_keluarga'=>$this->input->post('anggota_keluarga'),   
+                            'nomor_kta'=>$this->input->post('nomor_kta'), 
+                            'simpanan_wajib'=>$this->input->post('simpanan_wajib'), 
+                            'simpanan_pokok'=>$this->input->post('simpanan_pokok'), 
+                            'simpanan_wajib_khusus'=>$this->input->post('simpanan_wajib_khusus'), 
+                            'ket'=>$this->input->post('ket'), 
+                            'foto'=>$this->$foto
+                        );  
+                    $addanggota= $this->Model_anggota->add_anggota($anggota);   
+                    
+                    if($addanggota)
+                    {
+                        $this->session->set_flashdata('Status','Input Succes');
+                        redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
+                    }
+                }  
+                else{
+                    $this->session->set_flashdata('Status','Ukuran foto terlalu besar');
+                    redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
+                }   
+               
         }
 
         function viewFormEditanggota()
         {
             $id = $this->input->get('id_anggota');
-            $data['editanggota'] = $this->Model_anggota->getDataanggotaById($id);
+            $data['editanggota'] = $this->Model_anggota->get_anggota_by_id($id);
             //echo json_encode($data);
             $this->template->load('Template/Template_admin','Form_anggota/Form_edit_anggota',$data);;
         }
@@ -61,9 +78,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             $id_anggota = $this->input->post('submitid');
             $anggota = array(
-                            'judul'=>$this->input->post('judulanggota'),                                                     
-                            'isi'=>$this->input->post('isianggota'),
-                            'gambar'=>$_FILES['img']['name']
+                'kelompok'=>$this->input->post('Kelompok'),                                    
+                'nama'=>$this->input->post('Nama'),
+                'kta'=>$this->input->post('Kta'),
+                'alamat'=>$this->input->post('Alamat'),
+                'tempat_lahir'=>$this->input->post('Tempat_lahir') ,
+                'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),     
+                'agama'=>$this->input->post('Agama'),
+                'status_kawin'=>$this->input->post('Status'),
+                'usaha'=>$this->input->post('usaha'),
+                'anggota_keluarga'=>$this->input->post('anggota_keluarga'),   
+                'nomor_kta'=>$this->input->post('nomor_kta'), 
+                'simpanan_wajib'=>$this->input->post('simpanan_wajib'), 
+                'simpanan_pokok'=>$this->input->post('simpanan_pokok'), 
+                'simpanan_wajib_khusus'=>$this->input->post('simpanan_wajib_khusus'), 
+                'ket'=>$this->input->post('ket'), 
+                'foto'=>$this->$foto
                             );
             $editanggota= $this->Model_anggota->update_anggota($id_anggota,$anggota);
             if($editanggota)
@@ -96,17 +126,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect('Admin/Controlleranggota/Controller_anggota/tampilDataanggota');
             }
         }
-        public function upload_gambar(){
-            $config['upload_path']          = './assets/gambar/';
-            $config['allowed_types']        = '*';           
+        public function upload_gambar($foto){
+            $config['upload_path']          = './assets/FotoAnggota/';
+            $config['allowed_types']        = '*';  
+            $config['file_name']      = $foto;   
+            $config['max_size'] = 50;
             $this->load->library('upload', $config);
-     
-            if ( ! $this->upload->do_upload('gambar')){
+            
+            if ( ! $this->upload->do_upload('foto')){
                 $error = array('error' => $this->upload->display_errors());
                 echo json_encode($error);
+                return false;
             }else{
-                $data = array('upload_data' => $this->upload->data());
-                redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
+                $data = array('upload_data' => $this->upload->data());   
+                return true;            
             }
         }
         

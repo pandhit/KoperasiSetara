@@ -1,7 +1,7 @@
 <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Anggota</a>
+                <a href="<?= base_url()?>Admin/ControllerAnggota/Controller_anggota/getDataanggota">Anggota</a>
             </li>
             <li>
                 <a href="#">Detail Anggota</a>
@@ -45,7 +45,20 @@
                                 <li>  
                                     <strong> Alamat </strong>  
                                     <span class="notranslate"><?= $datadetail->alamat?></span>  
-                                </li>                                                     
+                                </li> 
+                                <li>  
+                                    <strong> Tanggal terdaftar </strong>  
+                                    <span class="notranslate"><?php $tgl=explode(' ',$datadetail->tanggal_terdaftar);echo $tgl[0];?></span>  
+                                </li>   
+                                <li>  
+                                    <strong> Simpanan Wajib </strong>  
+                                    <span class="notranslate"><?php if($datadetail->simpanan_wajib ==null) {echo "-";}else{echo $datadetail->simpanan_wajib;}?></span>  
+                                </li>    
+                                <li>  
+                                    <strong> Simpanan Wajib Khusus </strong>  
+                                    <span class="notranslate"><?php if($datadetail->simpanan_wajib_khusus ==null) {echo "-";}else{echo $datadetail->simpanan_wajib_khusus;}?></span>  
+                                </li>      
+                                                                          
                             </ul>                                        
                         </div>     
                         <div class="col-md-5">
@@ -59,21 +72,33 @@
                                     <span class="notranslate"> <?= $datadetail->agama?> </span>  
                                 </li>
                                 <li>  
-                                    <strong> Badan Usaha </strong>  
-                                    <span class="notranslate">Koperasi</span>  
+                                    <strong> Pendidikan terakhir</strong>  
+                                    <span class="notranslate"> <?= $datadetail->pendidikan_terakhir?></span>  
                                 </li>
                                 <li>  
-                                    <strong> Bidang Usaha </strong>  
-                                    <span class="notranslate">Koperasi Jasa</span>  
+                                    <strong> Status</strong>  
+                                    <span class="notranslate"><?= $datadetail->status_kawin?></span>  
                                 </li>
                                 <li>  
-                                    <strong> Tahun Berdiri </strong>  
-                                    <span class="notranslate">2000</span>  
+                                    <strong> Usaha </strong>  
+                                    <span class="notranslate"><?= $datadetail->nama_usaha?></span>  
                                 </li>
                                 <li>  
-                                    <strong> Badan Hukum </strong>  
-                                    <span class="notranslate">72/BH/MENEG.I/XII/2000 XXXXXXX</span>  
-                                </li>                                                         
+                                    <strong> Anggota Keluarga </strong>  
+                                    <span class="notranslate"><?php if($datadetail->anggota_keluarga ==null) {echo "-";}else{echo $datadetail->anggota_keluarga;}?></span>  
+                                </li>      
+                                <li>  
+                                    <strong> Nomor KTA </strong>  
+                                    <span class="notranslate"><?php if($datadetail->nomor_kta ==null) {echo "-";}else{echo $datadetail->nomor_kta;}?></span>  
+                                </li>  
+                                <li>  
+                                    <strong> Simpanan Pokok </strong>  
+                                    <span class="notranslate"><?php if($datadetail->simpanan_pokok ==null) {echo "-";}else{echo $datadetail->simpanan_pokok;}?></span>  
+                                </li>  
+                                <li>  
+                                    <strong> Keterangan </strong>  
+                                    <span class="notranslate"><?php if($datadetail->ket ==null) {echo "-";}else{echo $datadetail->ket;}?></span>  
+                                </li> 
                             </ul>                    
                         </div>                   
                      </div>

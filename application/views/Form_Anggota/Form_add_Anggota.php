@@ -17,7 +17,7 @@
                     <div class="box col-md-12">
                             <div class="box-content">
                             <!-- <form name="fromaddcategory" action="<?= base_url('Admin/ControllerBerita/Controller_Berita/addBerita')?>"  method="post"> -->
-                                <?php echo form_open('Admin/ControllerAnggota/Controller_anggota/addanggota'); ?>
+                                <?php echo form_open_multipart('Admin/ControllerAnggota/Controller_anggota/addanggota'); ?>
                                     <div class="form-group">
                                         <label>Kelompok</label>
                                         <input required type="Text" id="search-box" name="Kelompok" class="form-control" placeholder="Masukan Kelompok">
@@ -62,12 +62,46 @@
                                         <label>Status</label>                                    
                                         <select class="custom-select custom-select-lg mb-3 form-control" id="status"  name="Status">
                                         <option selected>Pilih salah satu</option>
-                                        <option value="1">Nikah</option>
-                                        <option value="2">Belum Nikah</option>                                        
+                                        <option value="1">Kawin</option>
+                                        <option value="2">Belum Kawin</option>                                        
                                         </select>
-                                    </div>                                                        
-                                        </select>    
+                                    </div>   
+                                    <div class="form-group">
+                                        <label>Pendidikan Terakhir</label>
+                                        <input required type="Text"   id="input6" name="pendidikan_terakhir" class="form-control" placeholder="Masukan Pendidikan Terakhir">
+                                    </div>   
+                                    <div class="form-group">
+                                        <label>Usaha</label>
+                                        <input required type="Text"   id="input7" name="usaha" class="form-control" placeholder="Masukan Usaha">
                                     </div>
+                                    <div class="form-group">
+                                        <label>Anggota Keluarga</label>
+                                        <input required type="Text"   id="input8" name="anggota_keluarga" class="form-control" placeholder="Masukan Anggota keluarga">
+                                    </div>  
+                                    <div class="form-group">
+                                        <label>Nomor KTA</label>
+                                        <input required type="Text"   id="input9" name="nomor_kta" class="form-control" placeholder="Masukan Nomor KTA">
+                                    </div>  
+                                    <div class="form-group">
+                                        <label>Simpanan Wajib</label>
+                                        <input required type="Text"   id="input10" name="simpanan_wajib" class="form-control" placeholder="Masukan Simpanan Wajib">
+                                    </div>         
+                                    <div class="form-group">
+                                        <label>Simpanan Pokok</label>
+                                        <input required type="Text"   id="input11" name="simpanan_pokok" class="form-control" placeholder="Masukan Simpanan Pokok">
+                                    </div>  
+                                    <div class="form-group">
+                                        <label>Simpanan wajib khusus</label>
+                                        <input required type="Text"   id="input12" name="simpanan_wajib_khusus" class="form-control" placeholder="Masukan Simpanan Wajib Khusus">
+                                    </div>    
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <input required type="Text"   id="input13" name="ket" class="form-control" placeholder="Masukan Keterangan">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Foto</label>
+                                        <input required type="file" name='foto' accept="image/x-png,image/gif,image/jpeg" class="form-control">
+                                    </div>                                                                
                             </div>
                     </div>
                     <!--/span-->

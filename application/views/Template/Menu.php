@@ -24,8 +24,8 @@
                                         </a>
                                     </li>
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('ControllerMahasiswa/Controller_mahasiswa/get_mahasiswa')?>">
-                                        <span> Mahasiswa </span>
+                                        <a class="nav-link" href="<?= base_url()?>Admin/ControllerUsaha/Controller_usaha/getDatausaha">
+                                        <span> Jenis Usaha </span>
                                         </a>
                                     </li>
                                    

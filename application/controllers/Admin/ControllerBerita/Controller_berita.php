@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         function addBerita()
-        {
+        {    
                 $Berita = array (
                     'judul'=>$this->input->post('judulberita'),                                    
                     'isi'=>$this->input->post('isiberita'),

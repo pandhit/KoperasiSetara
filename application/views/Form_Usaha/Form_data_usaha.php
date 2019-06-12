@@ -4,7 +4,7 @@
                 <a href="#">Beranda</a>
             </li>
             <li>
-                <a href="#">Data Anggota</a>
+                <a href="#">Data Usaha</a>
             </li>
         </ul>
     </div>
@@ -13,7 +13,7 @@
     <div class="box col-md-12">
     <div class="box-inner">
     <div class="box-header well" data-original-title="">
-        <h2><i class="glyphicon glyphicon-user"></i> Data Anggota</h2>
+        <h2><i class="glyphicon glyphicon-user"></i> Data Usaha</h2>
 
         <div class="box-icon">
             <a href="#" class="btn addberita btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
@@ -27,32 +27,27 @@
         <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
             <thead>
                 <tr>
-                    <th>Nama</th>
-                    <th>KTA</th>
-                    <th>Alamat</th>
-                    <th>Action</th>                    
+                    <th>Nomor</th>
+                    <th>Nama Usaha</th>
+                    <th style="width:600px">Keterangan</th>    
+                    <th>Action</th>               
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($anggota as $k) { ?>
+                <?php foreach($Usaha as $k) { ?>
                     <tr>
-                        <td><?= $k->nama?></td>
-                        <td><?= $k->kta?></td>
-                        <td><?= $k->alamat?></td>
-                        
+                        <td><?= $k->nomor?></td>
+                        <td><?= $k->nama_usaha?></td>
+                        <td><?= $k->deskripsi?></td>                      
                         <td class="center">
-                        <a class="btn btn-primary" href="<?= base_url('Admin/ControllerAnggota/Controller_anggota/getDataById?id='.$k->id.'')?>">
-                                <i class="glyphicon glyphicon-search icon-white"></i>
-                                Detail
-                            </a>
-                            <a class="btn btn-info" href="<?= base_url('Admin/ControllerAnggota/Controller_anggota/viewFormEditanggota?id_anggota='.$k->id.'')?>">
+                            <a class="btn btn-info" href="<?= base_url('Admin/ControllerUsaha/Controller_usaha/viewFormEditusaha?id_usaha='.$k->nomor.'')?>">
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('Admin/ControllerBerita/Controller_berita/deleteBerita?id_berita='.$k->id.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('Admin/ControllerBerita/Controller_berita/deleteusaha?id_usaha='.$k->nomor.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
-                            </a>                          
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -65,22 +60,12 @@
         </div><!--/row-->
     </div><!--/span-->
 
-    <?php include "Form_add_Anggota.php";?>
+    <?php include "Form_add_usaha.php";?>
 
 <script>
-    $('.addberita').click(function (e) {
+    $('.addusaha').click(function (e) {
         e.preventDefault();
-        
-        $('#addberita').modal('show');
-        $('#search-box').val('');
-        $('#input1').val('');
-        $('#input2').val('');
-        $('#input3').val('');
-        $('#input4').val('');
-        $('#input5').val('');
-        document.getElementById("agama").selectedIndex = "0";
-        document.getElementById("status").selectedIndex = "0";
-
+        $('#addusaha').modal('show');
     });
 
 <?php if (!empty($this->session->flashdata('Status'))){?>
