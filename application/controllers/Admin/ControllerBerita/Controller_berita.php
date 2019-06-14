@@ -17,13 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function addBerita()
         {    
+            $foto = get_current_date_img().'_'.str_replace(' ','_',$_FILES['gambar']['name']);
                 $Berita = array (
                     'judul'=>$this->input->post('judulberita'),                                    
                     'isi'=>$this->input->post('isiberita'),
-                    'gambar'=>$_FILES['gambar']['name']
+                    'gambar'=>$foto
                 );  
             $addBerita= $this->Model_berita->add_berita($Berita);
-            $this->upload_gambar();
+            $this->upload_gambar($foto);
             if($addBerita)
             {
                 $this->session->set_flashdata('Status','Input Succes');
@@ -49,13 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             'gambar'=>$foto
                             );
            
-            $var = $this->Model_anggota->getDataBeritaById($id_Berita);    
-            if($var->foto)
+            $var = $this->Model_berita->getDataBeritaById($id_Berita);    
+            if($var->gambar)
             {
-                unlink('assets/gambar/'.$var->foto);
+                unlink('assets/gambar/'.$var->gambar);
             }
-            $this->upload_gambar($foto);
-            $editBerita= $this->Model_Berita->update_berita($id_Berita,$Berita);
+            $this->upload_gambar($foto);           
+           $editBerita= $this->Model_berita->update_berita($id_Berita,$Berita);
             if($editBerita)
             {   
             $this->session->set_flashdata('Status','Edit Succes');
@@ -86,17 +87,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 redirect('Admin/ControllerBerita/Controller_berita/ta    mpilDataBerita');
             }
         }
-        public function upload_gambar(){
+        public function upload_gambar($foto){
             $config['upload_path']          = './assets/gambar/';
-            $config['allowed_types']        = '*';           
+            $config['allowed_types']        = '*';   
+            $config['file_name']      = $foto;                    
             $this->load->library('upload', $config);
      
             if ( ! $this->upload->do_upload('gambar')){
                 $error = array('error' => $this->upload->display_errors());
                 echo json_encode($error);
             }else{
-                $data = array('upload_data' => $this->upload->data());
-                redirect('Admin/ControllerBerita/Controller_berita/getDataBerita');
+                $data = array('upload_data' => $this->upload->data());            
             }
         }
         
