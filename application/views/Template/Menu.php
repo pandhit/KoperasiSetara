@@ -27,34 +27,7 @@
                                         <a class="nav-link" href="<?= base_url()?>Admin/ControllerUsaha/Controller_usaha/getDatausaha">
                                         <span> Jenis Usaha </span>
                                         </a>
-                                    </li>
-                                   
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_karyawan/M_karyawan/get_karyawan')?>">
-                                        <span> Karyawan</span>     
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_usergroup/M_usergroup/get_usergroup')?>">
-                                        <span> Usergroup </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_user/M_user/get_user')?>">
-                                        <span> User </span>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url('M_user_mahasiswa/M_user_mahasiswa/get_user_mahasiswa')?>">
-                                        <span> User Mahasiswa</span>     
-                                        </a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a class="nav-link" href="<?= base_url()?>examples/pages/rtl.html">
-                                        <span> Jadwal Lab</span>     
-                                        </a>
-                                    </li>
+                                    </li>                                                                      
                                 </ul>
                             </div>
                         </li>                   
