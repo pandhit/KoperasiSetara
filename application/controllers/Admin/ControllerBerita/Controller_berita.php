@@ -42,11 +42,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function editBerita()
         {
             $id_Berita = $this->input->post('submitid');
+            $foto = get_current_date_img().'_'.str_replace(' ','_',$_FILES['gambar']['name']);
             $Berita = array(
                             'judul'=>$this->input->post('judulberita'),                                                     
                             'isi'=>$this->input->post('isiberita'),
-                            'gambar'=>$_FILES['img']['name']
+                            'gambar'=>$foto
                             );
+           
+            $var = $this->Model_anggota->getDataBeritaById($id_Berita);    
+            if($var->foto)
+            {
+                unlink('assets/gambar/'.$var->foto);
+            }
+            $this->upload_gambar($foto);
             $editBerita= $this->Model_Berita->update_berita($id_Berita,$Berita);
             if($editBerita)
             {   
@@ -75,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else
             {
                 $this->session->set_flashdata('Status','Delete Failed');
-                redirect('Admin/ControllerBerita/Controller_berita/tampilDataBerita');
+                redirect('Admin/ControllerBerita/Controller_berita/ta    mpilDataBerita');
             }
         }
         public function upload_gambar(){

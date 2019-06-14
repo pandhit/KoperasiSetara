@@ -49,7 +49,7 @@
                                 <i class="glyphicon glyphicon-edit icon-white"></i>
                                 Edit
                             </a>
-                            <a class="btn btn-danger" href="<?= base_url('Admin/ControllerBerita/Controller_berita/deleteBerita?id_berita='.$k->id.'')?>">
+                            <a class="btn btn-danger" href="<?= base_url('Admin/ControllerAnggota/Controller_anggota/deleteanggota?id_anggota='.$k->id.'')?>">
                                 <i class="glyphicon glyphicon-trash icon-white"></i>
                                 Delete
                             </a>                          

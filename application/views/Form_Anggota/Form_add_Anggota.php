@@ -103,10 +103,8 @@
                                         <input required type="file" name='foto' accept="image/x-png,image/gif,image/jpeg" class="form-control">
                                     </div>                                                                
                             </div>
-                    </div>
-                    <!--/span-->
-                </div><!--/row-->
-              <!-- end body -->
+                    </div>                   
+                </div>             
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Tambah Category</button>
                 </form>

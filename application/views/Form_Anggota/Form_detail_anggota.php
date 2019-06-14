@@ -18,7 +18,7 @@
             <div class="box-content" style="margin-top: 15px;">  
                  <div class="row">
                      <div class="col-md-2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"  style="height: 100%;width: 80%;"alt=""/>
+                        <img src="<?php echo base_url('assets/FotoAnggota/').$datadetail->foto;?>"   style="height: 100%;width: 80%;"alt=""/>
                      </div>
                         <div class="col-md-5">                    
                             <ul class="keyvalue">
@@ -98,7 +98,7 @@
                                 <li>  
                                     <strong> Keterangan </strong>  
                                     <span class="notranslate"><?php if($datadetail->ket ==null) {echo "-";}else{echo $datadetail->ket;}?></span>  
-                                </li> 
+                                </li>                                  
                             </ul>                    
                         </div>                   
                      </div>

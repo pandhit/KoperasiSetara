@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             'simpanan_pokok'=>$this->input->post('simpanan_pokok'), 
                             'simpanan_wajib_khusus'=>$this->input->post('simpanan_wajib_khusus'), 
                             'ket'=>$this->input->post('ket'), 
-                            'foto'=>$this->$foto
+                            'foto'=>$foto
                         );  
                     $addanggota= $this->Model_anggota->add_anggota($anggota);   
                     
@@ -77,15 +77,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function editanggota()
         {
             $id_anggota = $this->input->post('submitid');
+            $foto = get_current_date_img().'_'.str_replace(' ','_',$_FILES['foto']['name']);
+            // echo json_encode($foto);
             $anggota = array(
                 'kelompok'=>$this->input->post('Kelompok'),                                    
                 'nama'=>$this->input->post('Nama'),
                 'kta'=>$this->input->post('Kta'),
                 'alamat'=>$this->input->post('Alamat'),
                 'tempat_lahir'=>$this->input->post('Tempat_lahir') ,
-                'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),     
+                'tanggal_lahir'=>$this->input->post('Tanggal_lahir'),   
+                'wilayah'=>$this->input->post('Wilayah'),
                 'agama'=>$this->input->post('Agama'),
                 'status_kawin'=>$this->input->post('Status'),
+                'pendidikan_terakhir'=>$this->input->post('Pendidikan_terakhir'),
                 'usaha'=>$this->input->post('usaha'),
                 'anggota_keluarga'=>$this->input->post('anggota_keluarga'),   
                 'nomor_kta'=>$this->input->post('nomor_kta'), 
@@ -93,12 +97,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'simpanan_pokok'=>$this->input->post('simpanan_pokok'), 
                 'simpanan_wajib_khusus'=>$this->input->post('simpanan_wajib_khusus'), 
                 'ket'=>$this->input->post('ket'), 
-                'foto'=>$this->$foto
-                            );
+                'foto'=>$foto
+            );
+            $var = $this->Model_anggota->get_anggota_by_id($id_anggota);        
+            if($var->foto)
+            {
+                unlink('assets/FotoAnggota/'.$var->foto);
+            }
+            $this->upload_gambar($foto);
             $editanggota= $this->Model_anggota->update_anggota($id_anggota,$anggota);
             if($editanggota)
             {   
             $this->session->set_flashdata('Status','Edit Succes');
+            
             redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
             }
             else
@@ -111,8 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function deleteanggota()
         {
             $id_anggota=$this->input->get('id_anggota');
-            $var = $this->Model_anggota->getDataanggotaById($id_anggota);
-            unlink('assets/gambar/'.$var->gambar);
+            $var = $this->Model_anggota->get_anggota_by_id($id_anggota);
+            unlink('assets/FotoAnggota/'.$var->foto);
             $deleteanggota = $this->Model_anggota->delete_anggota($id_anggota);
             if($deleteanggota)
             {   
@@ -123,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             else
             {
                 $this->session->set_flashdata('Status','Delete Failed');
-                redirect('Admin/Controlleranggota/Controller_anggota/tampilDataanggota');
+                redirect('Admin/Controlleranggota/Controller_anggota/getDataanggota');
             }
         }
         public function upload_gambar($foto){
