@@ -15,15 +15,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->template->load('Template/Template_admin','Form_usaha/Form_data_usaha',$data);
         }
 
-        function addusaha()
+        function addUsaha()
         {    
-                $usaha = array (
-                    'nomor'=>$this->input->post('Nomor'),                                    
-                    'nama_usaha'=>$this->input->post('Nama Usaha'),
+                $usaha = array (                                
+                    'nama_usaha'=>$this->input->post('NamaUsaha'),
                     'deskripsi'=>$this->input->post('Deskripsi')
                 );  
-            $addusaha= $this->Model_usaha->add_usaha($usaha);
-            $this->upload_gambar();
+            $addusaha= $this->Model_usaha->add_usaha($usaha);          
             if($addusaha)
             {
                 $this->session->set_flashdata('Status','Input Succes');
@@ -34,19 +32,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function viewFormEditusaha()
         {
             $id = $this->input->get('id_usaha');
-            $data['editusaha'] = $this->Model_usaha->getDatausahaById($id);
-            //echo json_encode($data);
+            $data['editusaha'] = $this->Model_usaha->getDataUsahaById($id);           
             $this->template->load('Template/Template_admin','Form_usaha/Form_edit_usaha',$data);;
         }
 
         function editusaha()
         {
             $id_usaha = $this->input->post('submitid');
-            $usaha = array(
-                            'judul'=>$this->input->post('judulusaha'),                                                     
-                            'isi'=>$this->input->post('isiusaha'),
-                            'gambar'=>$_FILES['img']['name']
-                            );
+            $usaha = array (                                
+                'nama_usaha'=>$this->input->post('NamaUsaha'),
+                'deskripsi'=>$this->input->post('Deskripsi')
+            );  
             $editusaha= $this->Model_usaha->update_usaha($id_usaha,$usaha);
             if($editusaha)
             {   

@@ -25,6 +25,11 @@ class Model_usaha extends CI_Model {
         $deleteusaha=$this->db->delete("tb_usaha");
         return $deleteusaha;
     }
-
+    function getDataUsahaById($id)
+    {       
+        $this->db->where('nomor',$id);
+        $dataBerita = $this->db->get('tb_usaha')->row();
+        return $dataBerita;
+    }
 }
 ?>

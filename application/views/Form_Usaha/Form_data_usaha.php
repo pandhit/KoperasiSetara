@@ -16,14 +16,13 @@
         <h2><i class="glyphicon glyphicon-user"></i> Data Usaha</h2>
 
         <div class="box-icon">
-            <a href="#" class="btn addberita btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
+            <a href="#" class="btn addusaha btn-round btn-default"><i class="glyphicon glyphicon-plus-sign"></i></a>
             <a href="#" class="btn btn-minimize btn-round btn-default"><i
                     class="glyphicon glyphicon-chevron-up"></i></a>
             <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
         </div>
     </div>
     <div class="box-content">
-    <!-- <div class="alert alert-info">For help with such table please check <a href="http://datatables.net/" target="_blank">http://datatables.net/</a></div> -->
         <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
             <thead>
                 <tr>
@@ -56,11 +55,11 @@
         </div>
         </div>
         </div>
-        <!--/span-->
-        </div><!--/row-->
-    </div><!--/span-->
-
-    <?php include "Form_add_usaha.php";?>
+        
+        </div>
+    </div>
+    
+ <?php include "Form_add_usaha.php";?>
 
 <script>
     $('.addusaha').click(function (e) {
