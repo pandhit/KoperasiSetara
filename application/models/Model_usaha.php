@@ -14,14 +14,14 @@ class Model_usaha extends CI_Model {
 
     function update_usaha($idusaha,$datausaha)
     {
-        $this->db->where('id',$idusaha);
+        $this->db->where('nomor',$idusaha);
         $updateusaha=$this->db->update("tb_usaha",$datausaha);
         return $updateusaha;
     }
 
     function delete_usaha($idusaha)
     {
-        $this->db->where('id',$idusaha);
+        $this->db->where('nomor',$idusaha);
         $deleteusaha=$this->db->delete("tb_usaha");
         return $deleteusaha;
     }

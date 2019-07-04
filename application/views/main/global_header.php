@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/lightbox.min.css"> 
 <link rel="stylesheet" href="<?php echo base_url('').'assets/'?>css/util.css">
 <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/main.css"> 
+<link href='<?= base_url('assets/Admin/')?>css/animate.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="<?php echo base_url('assets/')?>css/custom.css"> 
 
 </head>

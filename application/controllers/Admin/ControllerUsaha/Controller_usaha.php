@@ -58,9 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function deleteusaha()
         {
-            $id_usaha=$this->input->get('id_usaha');
-            $var = $this->Model_usaha->getDatausahaById($id_usaha);
-            unlink('assets/gambar/'.$var->gambar);
+            $id_usaha=$this->input->get('id_usaha');             
             $deleteusaha = $this->Model_usaha->delete_usaha($id_usaha);
             if($deleteusaha)
             {   

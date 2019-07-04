@@ -16,7 +16,7 @@
                 <h2><i class="glyphicon glyphicon-edit"></i>Edit</h2>
             </div>
             <div class="box-content">
-                <form name="fromeditalat" action="<?= base_url('Admin/ControllerUsahaController_usaha/editusaha')?>"  method="post" enctype="multipart/form-data">
+                <form name="fromeditalat" action="<?= base_url('Admin/ControllerUsaha/Controller_usaha/editusaha')?>"  method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Judul</label>
                         <input required type="Text" name="NamaUsaha" class="form-control" value="<?php echo $editusaha->nama_usaha?>">

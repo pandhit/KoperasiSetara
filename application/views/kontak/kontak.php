@@ -6,21 +6,23 @@
 			<div class="row">
 				<div class="col-md-8 p-b-30">
 					<div class="p-r-20 p-r-0-lg">
+                   
                     <h2 class="text-sejarah-kop p-t-15 p-b-16" style="text-transform: uppercase;">
 						<strong>Silakan isi form dibawah</strong>   
-					</h2>
+                    </h2>
+                    <?php echo form_open_multipart('web/Controller_comments/addComment'); ?>
                         <div class="bo4 of-hidden size15 m-b-20">
-                                <input class="sizefull txt-form p-l-22 p-r-22" type="text" name="name" placeholder="Full Name">
+                                <input class="sizefull txt-form p-l-22 p-r-22" type="text" name="Nama" placeholder="Full Name">
                         </div>
                         <div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull txt-form p-l-22 p-r-22" type="text" name="phone-number" placeholder="Phone Number">
+							<input class="sizefull txt-form p-l-22 p-r-22" type="text" name="Phone" placeholder="Phone Number">
 						</div>
 
 						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull txt-form p-l-22 p-r-22" type="text" name="email" placeholder="Email Address">
+							<input class="sizefull txt-form p-l-22 p-r-22" type="text" name="Email" placeholder="Email Address">
 						</div>
 
-						<textarea class="dis-block txt-form size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Message"></textarea>
+						<textarea class="dis-block txt-form size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="Message" placeholder="Message"></textarea>
                     </div>
                     <div class="w-size25">
 							<!-- Button -->
